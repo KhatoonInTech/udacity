@@ -73,10 +73,10 @@ def classify_images(images_dir, results_dic, model):
       classifier_labels.append(classifier(path ,model).lower().strip())
     for i,value in enumerate(results_dic.values()):
       value.append(classifier_labels[i])
-      if value[0]==value[1]:
-        value.append(1)
-      
-      value.append(0)
+      if value[0] in value[1]:
+        value.append([1])
+      else:
+        value.append([0])
 
 # images_dir="data/pet_images/"
 # filenames = listdir(images_dir)
